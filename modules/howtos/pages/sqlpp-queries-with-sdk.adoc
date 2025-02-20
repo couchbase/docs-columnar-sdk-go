@@ -1,0 +1,91 @@
+= Querying with {sqlpp}
+:description: You can query for documents in Couchbase using the {sqlpp} query language, a language based on SQL, but designed for structured and flexible JSON documents.
+// :page-aliases: n1ql-query.adoc,n1ql-queries-with-sdk.adoc
+// :page-aliases: ROOT:document-operations.adoc,ROOT:documents-creating,ROOT:documents-updating,ROOT:documents-retrieving,ROOT:documents-deleting,n1ql-queries-with-sdk.adoc
+
+
+[abstract]
+{description}
+
+
+
+On this page we dive straight into using the Query Service API from the {name-sdk}.
+For a deeper look at the concepts, to help you better understand the Query Service, and the {sqlpp} language, see the links in the <<further-information,Further Information>> section at the end of this page.
+
+
+
+
+Here we show queries against the Travel Sample collection, at cluster and scope level,
+and give links to information on adding other collections to your data.
+// kafka
+// postgres
+// capella
+
+
+== Before You Start
+
+This page assumes that you have xref:hello-world:start-using-sdk.adoc[installed the {name-sdk}], added your IP address to the allowlist, and xref:columnar:admin:prepare-project.adoc#cluster[created a Columnar cluster].
+
+Create a collection to work upon by xref:columnar:intro:examples.adoc#travel-sample[importing the travel-sample dataset] into your cluster.
+
+
+
+== Querying Your Dataset
+
+
+Execute a query and buffer all result rows in client memory:
+
+.Scope Level
+[source,java]
+----
+QueryResult result = scope.executeQuery("select 1");
+result.rows().forEach(row -> System.out.println("Got row: " + row));
+----
+
+.Cluster Level
+[source,java]
+----
+QueryResult result = cluster.executeQuery("select 1");
+result.rows().forEach(row -> System.out.println("Got row: " + row));
+----
+
+
+=== Positional and Named Parameters
+
+Supplying parameters as individual arguments to the query allows the query engine to optimize the parsing and planning of the query. You can either supply these parameters by name or by position.
+
+Execute a streaming query with positional arguments:
+
+.Positional Parameters
+[source,java]
+----
+cluster.executeStreamingQuery(
+  "select ?=1",
+  row -> System.out.println("Got row: " + row),
+  options -> options
+    .parameters(List.of(1))
+);
+----
+
+Execute a streaming query with named arguments:
+
+.Named Parameters
+[source,java]
+----
+cluster.executeStreamingQuery(
+  "select $foo=1",
+  row -> System.out.println("Got row: " + row),
+  options -> options
+    .parameters(Map.of("foo", 1))
+);
+----
+
+
+
+== Further Information
+
+The xref:server:analytics:1_intro.adoc[{sqlpp} for Analytics Reference]
+offers a complete guide to the SQL++ language for both of our analytics services, including all of the latest additions.
+
+
+

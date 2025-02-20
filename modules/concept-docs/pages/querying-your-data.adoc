@@ -1,0 +1,36 @@
+= Querying Your Data 
+:page-toclevels: 2
+:description: Querying Capella Columnar from the {name_platform} SDK, with {sqlpp}.
+
+
+// Note to editors
+// 
+// This page pulls in content from -sdk-common-
+// and code samples from -example-dir-
+// 
+// It can be seen built at wwww.
+
+[abstract]
+{description}
+
+
+
+{sqlpp} is a declarative query language for JSON data.
+
+
+
+== Real-Time Data Analysis
+
+Traditionally, analyzing JSON data in NoSQL databases requires complex transformations (like flattening) to prepare it for analytics, causing delays and hindering real-time insights.
+Capella Columnar eliminates these ETL complexities by unifying operational and analytical data stores into a single platform.
+This enables Zero ETL, reducing costs, complexity, and improving time to insight.
+
+
+Dive right in with our xref:howtos:sqlpp-queries-with-sdk.adoc[practical examples].
+
+
+// Parameterized queries
+
+
+// include::{version-common}@columnar-sdk:pages:partial$sqlpp.adoc[tag=options]
+
