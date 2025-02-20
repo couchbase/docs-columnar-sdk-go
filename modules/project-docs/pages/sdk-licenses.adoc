@@ -7,7 +7,7 @@
 {description}
 Dependencies carry their own licenses.
 
-The Couchbase Java Client is distributed as source under the https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0].
+The Couchbase Columnar Go Client is distributed as source under the https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0].
 
 
 == Binary Distribution

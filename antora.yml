@@ -18,4 +18,4 @@ asciidoc:
     name-sdk: 'Go Columnar SDK'
     sdk_api: '1.0'
     sdk-api-link: https://docs.couchbase.com/sdk-api/columnar-go-client
-    sdk-gh-link: https://github.com/couchbase/couchbase-go-clients
+    sdk-gh-link: https://github.com/couchbase/couchbase-columnar-go-client

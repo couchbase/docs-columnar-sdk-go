@@ -1,24 +1,24 @@
-= Java Columnar SDK
+= Go Columnar SDK
 :page-layout: landing-page-top-level-sdk
 :page-role: tiles
 :!sectids:
 
-= Java Columnar SDK
+= Go Columnar SDK
 
 
 
 
 
-The Columnar Java SDK allows you to connect to a Capella Columnar cluster from Java.
+The Columnar Go SDK allows you to connect to a Capella Columnar cluster from Go.
 For connecting to a Couchbase Server Cluster -- self-managed, or Capella Operational --
-see our xref:java-sdk:hello-world:overview.adoc[Java Server SDK].
+see our xref:go-sdk:hello-world:overview.adoc[Go Operational SDK].
 
 
 {empty} +
 
 == icon:database[] Using Your Columnar Cluster
 
-How-to guides and tutorials to help you start your development journey with Columnar and the Java SDK.
+How-to guides and tutorials to help you start your development journey with Columnar and the Go SDK.
 
 ++++
 <div class="card-row three-column-row">
@@ -83,7 +83,7 @@ Useful resources to help support your development experience with Columnar and t
 
 [.column]
 .Reference
-* https://docs.couchbase.com/sdk-api/couchbase-columnar-java-client-1.0.0/com.couchbase.columnar.client.java/module-summary.html[API Reference]
+* https://docs.couchbase.com/sdk-api/couchbase-columnar-go-client-1.0.0/
 * xref:ref:client-settings.adoc[]
 * xref:ref:error-codes.adoc[]
 * xref:ref:glossary.adoc[Glossary]

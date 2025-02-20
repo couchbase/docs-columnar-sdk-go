@@ -1,4 +1,4 @@
-= Hello Columnar -- Java SDK Quickstart Guide
+= Hello Columnar -- Go SDK Quickstart Guide
 :page-toclevels: 2
 :description: Install, connect, try. A quick start guide to get you up and running with Columnar and the {name-sdk}.
 
@@ -21,17 +21,11 @@ After creating the cluster, add your IP address to the list of allowed IP addres
 // TODO: Link to https://docs.couchbase.com/columnar/admin/ip-allowed-list.html
 
 [#minimum-java-version]
-=== Minimum Java Version
+=== Minimum Go Version
 
-The {name-sdk} requires Java 17 or later.
-We recommend using the most recent long-term support (LTS) version of OpenJDK.
+The {name-sdk} requires Go 1.22 or 1.23,
+using https://go.dev/blog/using-go-modules[Go Modules].
 
-TIP: Remember to keep your Java installation up to date with the latest patches.
-
-[maven-project-template]
-== Maven Project Template
-
-The SDK's source code repository includes an https://github.com/couchbase/couchbase-jvm-clients/tree/columnar-java-client-{sdk_current_version}/columnar-java-client/examples[example Maven project] you can copy to get started quickly.
 
 == Adding the SDK to an Existing Project
 

@@ -5,9 +5,20 @@
 [abstract]
 {description}
 
-Client settings can be configured by writing code, or by including parameters in the connection string.
+Almost all configuration for the SDK can be specified through the `ConnectOptions` which are passed to the gocb.Connect call in the SDK.
+In addition to this, as with SDK 2.0, the majority of these options can also be specified through the connection string.
 
 
+
+
+
+
+
+
+
+
+
+////
 [#configure-with-code]
 == Configure with Code
 
@@ -201,3 +212,4 @@ For example:
 ----
 couchabses://example.com?srv=false
 ----
+////

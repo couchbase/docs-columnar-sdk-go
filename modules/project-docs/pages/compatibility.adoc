@@ -9,19 +9,12 @@ Plus notes on Cloud, networks, and AWS Lambda.
 {description}
 
 
-The {sdk_dot_minor} {name-sdk} requires Java 17 or later to be installed.
-We recommend using the most recent long-term support (LTS) version of OpenJDK.
 
-TIP: Remember to keep your Java installation up to date with the latest patches.
+The {sdk_dot_minor} {name-sdk} requires Go 1.22 or 1.23,
+using https://go.dev/blog/using-go-modules[Go Modules].
 
 
 == Platform Compatibility
-
-
-=== JDK Version Compatibility
-
-include::{sdk_api}@columnar-sdk:shared:partial$compatibility.adoc[tag=jdk-version]
-
 
 
 

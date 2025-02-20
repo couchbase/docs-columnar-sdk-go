@@ -22,37 +22,14 @@ This page is a wider look at the topic.
 
 == Connecting to a Cluster
 
-The examples below use these imports:
 
-[source,java]
+A connection to a Couchbase Server cluster is represented by a `Cluster` object.
+A `Cluster` provides access to Buckets, Scopes, and Collections, as well as various Couchbase services and management interfaces.
+The simplest way to create a `Cluster` object is to call `gocb.Connect()` with a <<connection-strings, connection string>>, username, and password:
+
+[source,golang]
 ----
-import com.couchbase.columnar.client.java.Cluster;
-import com.couchbase.columnar.client.java.Credential;
-import com.couchbase.columnar.client.java.QueryResult;
-----
-
-A connection to a Capella Columnar cluster is represented by a `Cluster` object.
-A `Cluster` provides access to databases, scopes, and collections, as well as various Columnar services and management interfaces.
-The simplest way to create a `Cluster` object is to call `Cluster.newInstance()` with a <<connection-strings, connection string>>, username, and password:
-
-
-
-[source,java]
-----
-public class Example {
-  public static void main(String[] args) {
-    var connectionString = "couchbases://cb.<your-endpoint>.cloud.couchbase.com";
-    var username = "...";
-    var password = "...";
-
-    try (Cluster cluster = Cluster.newInstance(
-      connectionString,
-      Credential.of(username, password)
-    )) {
-        // Interact with the cluster here
-    }
-  }
-}
+include::go-sdk:devguide:example$go/connecting.go[tag=simpleconnect,indent=0]
 ----
 
 WARNING: The above example uses a `try-with-resources` block to ensure the `Cluster` instance gets closed at the end.
@@ -78,20 +55,6 @@ for which the `couchbases://` schema is used as the root of the connection strin
 couchbases://cb.<your-endpoint>.cloud.couchbase.com
 ----
 
-////
-In a production environment, your connection string should include the addresses of multiple server nodes in case some are currently unavailable.
-Multiple addresses may be specified in a connection string by delimiting them with commas:
-
-.Connection string with two seed nodes
-----
-nodeA.example.com,nodeB.example.com
-----
-
-TIP: You don't need to include the address of every node in the cluster.
-The client fetches the full address list from the first node it is able to contact.
-////
-
-
 .Connection string with two parameters
 ----
 couchbases://cb.<your-endpoint>.cloud.couchbase.com?timeout.connect_timeout=30s&timeout.query_timeout=2m
@@ -99,90 +62,6 @@ couchbases://cb.<your-endpoint>.cloud.couchbase.com?timeout.connect_timeout=30s&
 
 The full list of recognized parameters is documented in the xref:ref:client-settings.adoc[client settings reference].
 
-
-////
-Any client setting with a system property name may also be specified as a connection string parameter (without the `com.couchbase.env.` prefix).
-
-WARNING: When creating a `Cluster` using a custom `ClusterEnvironment`, *_connection string parameters are ignored_*, since client settings are frozen when the cluster environment is built.
-////
-
-
-////
-=== Cluster Environment
-
-A `ClusterEnvironment` manages shared resources like thread pools, timers, and schedulers.
-It also holds the client settings.
-One way to customize the client's behavior is to build your own `ClusterEnvironment` with custom settings:
-
-[source,scala]
-----
-include::devguide:example$scala/ManagingConnections.scala[tag=env,indent=0]
-----
-
-This is a verbose example for simplicity, and the user may prefer to use `flatMap` or a for-comprehension to combine the multiple `Try`.
-
-Note there are `com.couchbase.client.scala.env` and `com.couchbase.client.core.env` versions of all environment parameters: be sure to import the `.scala` versions.
-
-TIP: If you create a `Cluster` without specifying a custom environment, the client creates a default environment used exclusively by that `Cluster`.
-This default `ClusterEnvironment` is managed completely by the Scala SDK, and is automatically shut down when the associated `Cluster` is disconnected.
-////
-
-
-////
-=== Connection Lifecycle
-
-Most of the high-level classes in the Scala SDK are designed to be safe for concurrent use by multiple threads.
-You will get the best performance if you share and reuse instances of `ClusterEnvironment`, `Cluster`, `Bucket`, `Scope`, and `Collection`, all of which are thread-safe.
-
-We recommend creating a single `Cluster` instance when your application starts up, and sharing this instance throughout your application.
-If you know at startup time which buckets, scopes, and collections your application will use, we recommend obtaining them from the `Cluster` at startup time and sharing those instances throughout your application as well.
-
-Before your application stops, gracefully shut down the client by calling the `disconnect()` method of each `Cluster` you created.
-If you created any `ClusterEnvironment` instances, call their `shutdown()` method after disconnecting the associated clusters.
-////
-
-
-
-////
-[#multiple-clusters]
-=== Connecting to Multiple Clusters
-
-If a single application needs to connect to multiple Couchbase Server clusters, we recommend creating a single `ClusterEnvironment` and sharing it between the `Clusters`.
-We will use a for-comprehension here to avoid excessive `Try` juggling.
-
-[source,scala]
-----
-include::devguide:example$scala/ManagingConnections.scala[tag=shared,indent=0]
-----
-
-Remember, whenever you manually create a `ClusterEnvironment` like this, the SDK will not shut it down when you call `Cluster.disconnect()`.
-Instead you are responsible for shutting it down after disconnecting all clusters that share the environment.
-////
-
-
-
-
-////
-=== Waiting for Bootstrap Completion
-
-Opening resources is asynchronous.
-That is, the call to `cluster.bucket` or `Cluster.connect` will complete instantly, and opening that resource will continue in the background.
-
-You can force waiting for the resource to be opened with a call to `waitUntilReady`, which is available on both the `Cluster` and `Bucket`.
-Here is an example of using it on the bucket:
-
-[source,scala]
-----
-include::devguide:example$scala/ManagingConnections.scala[tag=wait-until-ready,indent=0]
-----
-
-If not present, then the first Key Value (KV) operation on the bucket will wait for it to be ready.
-Any issues opening that bucket (for instance, if it does not exist), will result in an error being raised from that data operation.
-
-Other timeout issues may occur when using the SDK located geographically separately from the Couchbase Server cluster -- 
-this is xref:project-docs:compatibility.adoc#network-requirements[not recommended in production deployments], but often occurs during development.
-See the <<working-in-the-cloud,Cloud section>> below for some suggestions of settings adjustments.
-////
 
 
 ////
