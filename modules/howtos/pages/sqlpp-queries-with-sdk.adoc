@@ -33,20 +33,21 @@ Create a collection to work upon by xref:columnar:intro:examples.adoc#travel-sam
 == Querying Your Dataset
 
 
-Execute a query and buffer all result rows in client memory:
+The Go SDK will always return streaming response from the server.
+
+Execute a query:
 
 .Scope Level
-[source,java]
+[source,go]
 ----
-QueryResult result = scope.executeQuery("select 1");
-result.rows().forEach(row -> System.out.println("Got row: " + row));
+include::example$queries.go[tags=scopeLevelQuery]
 ----
 
+
 .Cluster Level
-[source,java]
+[source,go]
 ----
-QueryResult result = cluster.executeQuery("select 1");
-result.rows().forEach(row -> System.out.println("Got row: " + row));
+include::example$queries.go[tags=clusterLevelQuery]
 ----
 
 
@@ -57,27 +58,26 @@ Supplying parameters as individual arguments to the query allows the query engin
 Execute a streaming query with positional arguments:
 
 .Positional Parameters
-[source,java]
+[source,go]
 ----
-cluster.executeStreamingQuery(
-  "select ?=1",
-  row -> System.out.println("Got row: " + row),
-  options -> options
-    .parameters(List.of(1))
-);
+include::example$queries.go[tags=positionalParamQuery]
 ----
 
 Execute a streaming query with named arguments:
 
 .Named Parameters
-[source,java]
+[source,go]
 ----
-cluster.executeStreamingQuery(
-  "select $foo=1",
-  row -> System.out.println("Got row: " + row),
-  options -> options
-    .parameters(Map.of("foo", 1))
-);
+include::example$queries.go[tags=namedParamQuery]
+----
+
+.Buffered results
+
+The Go SDK allows you to buffer the results of a query into a slice of your type, using generics.
+
+[source,go]
+----
+include::example$queries.go[tags=bufferResults]
 ----
 
 

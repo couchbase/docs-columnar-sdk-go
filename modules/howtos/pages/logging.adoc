@@ -13,30 +13,30 @@ The Columnar Go SDK offers simple logging of library internals to help debug iss
 Logging may be configured on a global library-level basis.
 *Note that the logging API is subject to change*.
 
-You can configure logging using the `gocb.SetLogger`, which accepts an implementation of [.api]`gocb.Logger`.
+You can configure logging using the `cbcolumnar.SetLogger`, which accepts an implementation of [.api]`cbcolumnar.Logger`.
 The SDK comes with two built-in `Logger` implementations, which can be instantiated using the following _methods_:
 
 [[gocb.logger_instantiation_methods]]
-* [.api]`gocb.DefaultStdioLogger()` returns a logger that logs errors and warnings.
+* [.api]`cbcolumnar.DefaultStdioLogger()` returns a logger that logs errors and warnings.
 This is fairly non-disruptive and does not produce a lot of output.
-* [.api]`gocb.VerboseStdioLogger()` returns a logger that logs more detailed tracing information.
+* [.api]`cbcolumnar.VerboseStdioLogger()` returns a logger that logs more detailed tracing information.
 This logger should only be used when trying to diagnose an issue.
 
 [source,golang,indent=0]
 ----
 import (
-        "github.com/couchbase/gocb/v2"
+        "github.com/couchbase/gocbcolumnar"
 )
 
 func main() {
-        gocb.SetLogger(gocb.DefaultStdioLogger())
+        cbcolumnar.SetLogger(cbcolumnar.DefaultStdioLogger())
 
-        // Use the gocb library.
+        // Use the cbcolumnar library.
 }
 ----
 
-It is also possible to provide other logger implementations to [.api]`gocb.SetLogger`.
-Implementations must satisify the [.api]`gocb.Logger` interface.
+It is also possible to provide other logger implementations to [.api]`cbcolumnar.SetLogger`.
+Implementations must satisify the [.api]`cbcolumnar.Logger` interface.
 
 [source,golang,indent=0]
 ----
@@ -50,8 +50,8 @@ Implementations must satisify the [.api]`gocb.Logger` interface.
 }
 ----
 
-The [.api]`gocb.DefaultStdioLogger()` and [.api]`gocb.VerboseStdioLogger()` wrap their [.api]`gocbcore` counterparts to provide a stable interface.
-The [.api]`gocb` versions should be used.
+The [.api]`cbcolumnar.DefaultStdioLogger()` and [.api]`cbcolumnar.VerboseStdioLogger()` wrap their [.api]`gocbcore` counterparts to provide a stable interface.
+The [.api]`cbcolumnar` versions should be used.
 
 
 == Log Redaction
@@ -61,7 +61,7 @@ If you want to redact client logs (for example before handing them off to the Co
 
 [source,golang,indent=0]
 ----
-gocb.SetLogRedactionLevel(gocb.RedactFull)
+cbcolumnar.SetLogRedactionLevel(cbcolumnar.RedactFull)
 ----
 
 Different redaction levels are supported -- please see the `RedactionLevel` enum description for more information.
@@ -78,19 +78,19 @@ You might want your logging to use a popular logging framework such as logrus.
 In the following examples we show to use the SDK with a logrus logger:
 
 First we need to create our own logger that wraps the logrus logger.
-The logrus `Log`/`Logf` functions don't quite match the gocb logging interface and the log levels are slightly different.
+The logrus `Log`/`Logf` functions don't quite match the cbcolumnar logging interface and the log levels are slightly different.
 This means that we need to do a bit of marshalling to get the data into a set of parameters that logrus can use.
 
 [source,golang,indent=0]
 ----
-include::go-sdk:devguide:example$go/custom-logging.go[tag=loggerwrapper]
+include::example$logging.go[tag=loggerwrapper]
 ----
 
-Next we need to create a logrus logger instance, wrap it in our own logger and then pass it to gocb:
+Next we need to create a logrus logger instance, wrap it in our own logger and then pass it to cbcolumnar:
 
 [source,golang,indent=0]
 ----
-include::go-sdk:devguide:example$go/custom-logging.go[tag=creation]
+include::example$logging.go[tag=creation]
 ----
 
-Now all of the gocb logging output will go through our logger and be outputted to stdout (e.g. the terminal) in JSON.
+Now all of the cbcolumnar logging output will go through our logger and be outputted to stdout (e.g. the terminal) in JSON.
