@@ -36,55 +36,7 @@ To see log messages from the SDK, xref:howtos:logging.adoc[include an SLF4J bind
 [quickstart]
 == Connecting and Executing a Query
 
-[source,java]
+[source,go]
 ----
-import com.couchbase.columnar.client.java.Cluster;
-import com.couchbase.columnar.client.java.Credential;
-import com.couchbase.columnar.client.java.QueryResult;
-
-import java.util.List;
-
-public class Example {
-  public static void main(String[] args) {
-    var connectionString = "couchbases://...";
-    var username = "...";
-    var password = "...";
-
-    try (Cluster cluster = Cluster.newInstance(
-      connectionString,
-      Credential.of(username, password),
-      // The third parameter is optional.
-      // This example sets the default query timeout to 2 minutes.
-      clusterOptions -> clusterOptions
-        .timeout(it -> it.queryTimeout(Duration.ofMinutes(2)))
-    )) {
-
-      // Execute a query and buffer all result rows in client memory.
-      QueryResult result = cluster.executeQuery("select 1");
-      result.rows().forEach(row -> System.out.println("Got row: " + row));
-
-      // Execute a query and process rows as they arrive from server.
-      cluster.executeStreamingQuery(
-          "select 1",
-          row -> System.out.println("Got row: " + row)
-      );
-
-      // Execute a streaming query with positional arguments.
-      cluster.executeStreamingQuery(
-        "select ?=1",
-        row -> System.out.println("Got row: " + row),
-        options -> options
-          .parameters(List.of(1))
-      );
-
-      // Execute a streaming query with named arguments.
-      cluster.executeStreamingQuery(
-        "select $foo=1",
-        row -> System.out.println("Got row: " + row),
-        options -> options
-          .parameters(Map.of("foo", 1))
-      );
-    }
-  }
-}
+include::example$helloworld.go[tags=**]
 ----
