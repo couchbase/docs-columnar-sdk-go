@@ -40,14 +40,14 @@ Execute a query:
 .Scope Level
 [source,go]
 ----
-include::example$queries.go[tags=scopeLevelQuery]
+include::devguide:example$queries.go[tags=scopeLevelQuery]
 ----
 
 
 .Cluster Level
 [source,go]
 ----
-include::example$queries.go[tags=clusterLevelQuery]
+include::devguide:example$queries.go[tags=clusterLevelQuery]
 ----
 
 
@@ -60,7 +60,7 @@ Execute a streaming query with positional arguments:
 .Positional Parameters
 [source,go]
 ----
-include::example$queries.go[tags=positionalParamQuery]
+include::devguide:example$queries.go[tags=positionalParamQuery]
 ----
 
 Execute a streaming query with named arguments:
@@ -68,7 +68,7 @@ Execute a streaming query with named arguments:
 .Named Parameters
 [source,go]
 ----
-include::example$queries.go[tags=namedParamQuery]
+include::devguide:example$queries.go[tags=namedParamQuery]
 ----
 
 .Buffered results
@@ -77,7 +77,7 @@ The Go SDK allows you to buffer the results of a query into a slice of your type
 
 [source,go]
 ----
-include::example$queries.go[tags=bufferResults]
+include::devguide:example$queries.go[tags=bufferResults]
 ----
 
 

@@ -7,10 +7,6 @@ import (
 )
 
 func queries() {
-	connStr := "couchbases://..."
-	username := "..."
-	password := "..."
-
 	cluster, err := cbcolumnar.NewCluster(
 		connStr,
 		cbcolumnar.NewCredential(username, password),
@@ -105,7 +101,7 @@ func bufferResults(ctx context.Context, cluster *cbcolumnar.Cluster) {
 	result, err := cluster.ExecuteQuery(ctx, "select 1")
 	handleErr(err)
 
-	rows, meta, err := cbcolumnar.BufferQueryResult[map[string]interface{}](result)
+	rows, meta, err := cbcolumnar.BufferQueryResult[map[string]int](result)
 	handleErr(err)
 
 	for _, row := range rows {

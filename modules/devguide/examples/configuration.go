@@ -6,11 +6,7 @@ import (
 	cbcolumnar "github.com/couchbaselabs/gocbcolumnar"
 )
 
-func main() {
-	connStr := "couchbases://..."
-	username := "..."
-	password := "..."
-
+func configuration() {
 	// #tag::configuration[]
 	cluster, err := cbcolumnar.NewCluster(
 		connStr,
@@ -19,7 +15,7 @@ func main() {
 			SetTimeoutOptions(
 				cbcolumnar.NewTimeoutOptions().
 					SetConnectTimeout(30*time.Second).
-					SetServerQueryTimeout(2*time.Minute),
+					SetQueryTimeout(2*time.Minute),
 			).
 			SetSecurityOptions(cbcolumnar.NewSecurityOptions().
 				SetCipherSuites([]string{"MY_APPROVED_CIPHER_SUITE"}),
@@ -30,10 +26,4 @@ func main() {
 
 	err = cluster.Close()
 	handleErr(err)
-}
-
-func handleErr(err error) {
-	if err != nil {
-		panic(err)
-	}
 }
