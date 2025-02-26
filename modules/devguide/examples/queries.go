@@ -64,16 +64,9 @@ func positionalParamQuery(ctx context.Context, cluster *cbcolumnar.Cluster) {
 		cbcolumnar.NewQueryOptions().SetPositionalParameters([]interface{}{1}),
 	)
 	handleErr(err)
-
-	for row := result.NextRow(); row != nil; row = result.NextRow() {
-		var content map[string]int
-
-		err = row.ContentAs(&content)
-		handleErr(err)
-
-		fmt.Printf("Got row content: %v", content)
-	}
 	// end::positionalParamQuery[]
+
+	handleResult(result)
 }
 
 func namedParamQuery(ctx context.Context, cluster *cbcolumnar.Cluster) {
@@ -84,16 +77,35 @@ func namedParamQuery(ctx context.Context, cluster *cbcolumnar.Cluster) {
 		cbcolumnar.NewQueryOptions().SetNamedParameters(map[string]interface{}{"foo": 1}),
 	)
 	handleErr(err)
+	// end::namedParamQuery[]
 
+	handleResult(result)
+}
+
+func handleResult(result *cbcolumnar.QueryResult) {
+	// tag::handleResults[]
 	for row := result.NextRow(); row != nil; row = result.NextRow() {
 		var content map[string]int
 
-		err = row.ContentAs(&content)
+		err := row.ContentAs(&content)
 		handleErr(err)
 
 		fmt.Printf("Got row content: %v", content)
 	}
-	// end::namedParamQuery[]
+
+	if err := result.Err(); err != nil {
+		handleErr(err)
+	}
+	// end::handleResults[]
+}
+
+func metadata(result *cbcolumnar.QueryResult) {
+	// tag::metadata[]
+	meta, err := result.MetaData()
+	handleErr(err)
+
+	fmt.Printf("Got meta: %v", meta)
+	// end::metadata[]
 }
 
 func bufferResults(ctx context.Context, cluster *cbcolumnar.Cluster) {
