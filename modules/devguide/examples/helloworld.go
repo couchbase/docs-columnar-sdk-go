@@ -8,11 +8,7 @@ import (
 	"github.com/couchbaselabs/gocbcolumnar"
 )
 
-func main() {
-	connStr := "couchbases://..."
-	username := "..."
-	password := "..."
-
+func helloWorld() {
 	cluster, err := cbcolumnar.NewCluster(
 		connStr,
 		cbcolumnar.NewCredential(username, password),
@@ -20,7 +16,7 @@ func main() {
 		// This example sets the default server query timeout to 3 minutes,
 		// that is the timeout value sent to the query server.
 		cbcolumnar.NewClusterOptions().SetTimeoutOptions(
-			cbcolumnar.NewTimeoutOptions().SetServerQueryTimeout(3*time.Minute),
+			cbcolumnar.NewTimeoutOptions().SetQueryTimeout(3*time.Minute),
 		),
 	)
 	handleErr(err)
@@ -70,10 +66,4 @@ func main() {
 
 	err = cluster.Close()
 	handleErr(err)
-}
-
-func handleErr(err error) {
-	if err != nil {
-		panic(err)
-	}
 }

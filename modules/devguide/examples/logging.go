@@ -41,7 +41,7 @@ func (logger *MyLogrusLogger) Log(level cbcolumnar.LogLevel, offset int, format 
 
 // #end::loggerwrapper[]
 
-func main() {
+func logging() {
 	// #tag::creation[]
 	logger := logrus.New()
 	logger.SetFormatter(&logrus.JSONFormatter{})

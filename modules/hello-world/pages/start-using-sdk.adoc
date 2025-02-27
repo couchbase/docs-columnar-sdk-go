@@ -38,5 +38,5 @@ To see log messages from the SDK, xref:howtos:logging.adoc[include an SLF4J bind
 
 [source,go]
 ----
-include::example$helloworld.go[tags=**]
+include::devguide:example$helloworld.go[tags=**]
 ----
