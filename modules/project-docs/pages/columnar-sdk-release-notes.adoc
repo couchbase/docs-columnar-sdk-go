@@ -29,8 +29,8 @@ any changes to expected behavior are noted in the release notes that follow.
 
 === Version 1.0.0 (?? March 2025)
 
+https://pkg.go.dev/github.com/couchbase/gocbcolumnar[API Reference]
+
 This is the first General Availability (GA) release of the new Couchbase Columnar Go SDK.
 It supports executing queries against Capella Columnar clusters, with additional features planned for future releases.
-
-https://docs.couchbase.com/sdk-api/couchbase-columnar-go-client-1.0.0/[API Reference]
 // end::all[]
