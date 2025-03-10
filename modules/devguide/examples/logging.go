@@ -4,7 +4,7 @@ import (
 	"context"
 	"os"
 
-	"github.com/couchbaselabs/gocbcolumnar"
+	"github.com/couchbase/gocbcolumnar"
 	"github.com/sirupsen/logrus"
 )
 

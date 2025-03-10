@@ -27,7 +27,7 @@ All patch releases for each dot minor release should be API compatible, and safe
 any changes to expected behavior are noted in the release notes that follow.
 
 
-=== Version 1.0.0 (?? March 2025)
+=== Version 1.0.0 (10 March 2025)
 
 https://pkg.go.dev/github.com/couchbase/gocbcolumnar[API Reference]
 

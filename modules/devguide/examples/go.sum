@@ -1,9 +1,9 @@
-github.com/couchbase/gocbcore/v10 v10.5.4-0.20250224120954-e3fa0db14b53 h1:7u3UwTWap8NUmTq2VQq1/qwTRzTSzvka5L79iBBpPM8=
-github.com/couchbase/gocbcore/v10 v10.5.4-0.20250224120954-e3fa0db14b53/go.mod h1:Ssl44kA9WoSjFjJ/zdZoFu9I+qCfA4JiW9qnpOpi+pk=
+github.com/couchbase/gocbcolumnar v1.0.0 h1:0kD2MKLyWq2v+y5Fhu5SIZfYS/4WT09p42C5u9bFwyw=
+github.com/couchbase/gocbcolumnar v1.0.0/go.mod h1:eH9frdL5tx1OXY8Lz1pFuPGuwbdnRcvtqkggqr1/kxk=
+github.com/couchbase/gocbcore/v10 v10.6.0 h1:JnQtjOgq7I5GA4+CbKzRGtTM0KHY3SiJ3xdH2f4X+9Y=
+github.com/couchbase/gocbcore/v10 v10.6.0/go.mod h1:Ssl44kA9WoSjFjJ/zdZoFu9I+qCfA4JiW9qnpOpi+pk=
 github.com/couchbaselabs/gocaves/client v0.0.0-20250107114554-f96479220ae8 h1:MQfvw4BiLTuyR69FuA5Kex+tXUeLkH+/ucJfVL1/hkM=
 github.com/couchbaselabs/gocaves/client v0.0.0-20250107114554-f96479220ae8/go.mod h1:AVekAZwIY2stsJOMWLAS/0uA/+qdp7pjO8EHnl61QkY=
-github.com/couchbaselabs/gocbcolumnar v0.0.0-20250225180206-693f104e842e h1:WepQg/UKhu2VrgucLOH/cTMuSh0DYUy+uzVFNiOIfoM=
-github.com/couchbaselabs/gocbcolumnar v0.0.0-20250225180206-693f104e842e/go.mod h1:rs3xc2YDLpLTKmvwMyqAG+nIz8WidaCX5YztH8owtlI=
 github.com/couchbaselabs/gocbconnstr v1.0.5 h1:e0JokB5qbcz7rfnxEhNRTKz8q1svoRvDoZihsiwNigA=
 github.com/couchbaselabs/gocbconnstr v1.0.5/go.mod h1:KV3fnIKMi8/AzX0O9zOrO9rofEqrRF1d2rG7qqjxC7o=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=

@@ -1,9 +1,8 @@
 package main
 
 import (
+	"github.com/couchbase/gocbcolumnar"
 	"time"
-
-	"github.com/couchbaselabs/gocbcolumnar"
 )
 
 func connecting() {
