@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/couchbaselabs/gocbcolumnar"
+	"github.com/couchbase/gocbcolumnar"
 )
 
 func helloWorld() {

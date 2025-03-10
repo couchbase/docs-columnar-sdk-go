@@ -3,7 +3,8 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/couchbaselabs/gocbcolumnar"
+
+	"github.com/couchbase/gocbcolumnar"
 )
 
 func queries() {

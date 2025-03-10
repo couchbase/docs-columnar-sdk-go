@@ -5,7 +5,7 @@ import (
 	"errors"
 	"fmt"
 
-	cbcolumnar "github.com/couchbaselabs/gocbcolumnar"
+	"github.com/couchbase/gocbcolumnar"
 )
 
 func columanarError(ctx context.Context, cluster *cbcolumnar.Cluster) {

@@ -3,7 +3,7 @@ package main
 import (
 	"time"
 
-	cbcolumnar "github.com/couchbaselabs/gocbcolumnar"
+	"github.com/couchbase/gocbcolumnar"
 )
 
 func configuration() {
