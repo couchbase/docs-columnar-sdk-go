@@ -27,9 +27,9 @@ A connection to a Couchbase Server cluster is represented by a `Cluster` object.
 A `Cluster` provides access to Buckets, Scopes, and Collections, as well as various Couchbase services and management interfaces.
 The simplest way to create a `Cluster` object is to call `cbcolumnar.NewCluster()` with a <<connection-strings, connection string>>, username, and password:
 
-[source,golang]
+[source,golang,indent=0]
 ----
-include::go-sdk:devguide:example$go/connecting.go[tag=simpleconnect,indent=0]
+include::devguide:example$connecting.go[tag=connecting]
 ----
 
 NOTE: Capella's root certificate is *not* signed by a well known Certificate Authority.
