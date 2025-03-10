@@ -31,7 +31,7 @@ using https://go.dev/blog/using-go-modules[Go Modules].
 
 Declare a dependency on the SDK using its xref:project-docs:sdk-full-installation.adoc[].
 
-To see log messages from the SDK, xref:howtos:logging.adoc[include an SLF4J binding in your project].
+To see log messages from the SDK, xref:howtos:logging.adoc[enable logging].
 
 [quickstart]
 == Connecting and Executing a Query
