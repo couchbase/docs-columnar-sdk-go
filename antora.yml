@@ -1,6 +1,6 @@
-name: go-analytics-sdk
+name: go-columnar-sdk
 version: '1.0'
-title: Enterprise Analytics Go SDK
+title: Go Columnar SDK
 start_page: hello-world:overview.adoc
 nav:
 - modules/ROOT/nav.adoc
@@ -8,15 +8,14 @@ nav:
 asciidoc:
   attributes:
     page-nav-header-levels: 2
-    server_version: '7.6.6'
+    server_version: '7.6.2'
     sdk_current_version: '1.0.0'
     sdk_dot_minor: '1.0'
     sdk_dot_major: '1.x'
-    version-server: '7.6'
+    version-server: '7.6'Add commentMore actions
     version-common: '1.0'
     name_platform: 'Go'
-    name-sdk: 'Go Analytics SDK'
+    name-sdk: 'Go Columnar SDK'
     sdk_api: '1.0'
-    sdk-api-link: https://docs.couchbase.com/sdk-api/analytics-go-client
-    sdk-gh-link: https://github.com/couchbase/couchbase-jvm-clients
-
+    sdk-api-link: https://docs.couchbase.com/sdk-api/columnar-go-client
+    sdk-gh-link: https://github.com/couchbase/couchbase-columnar-go-client
