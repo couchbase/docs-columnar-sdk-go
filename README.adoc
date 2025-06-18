@@ -1,11 +1,11 @@
 = Couchbase Columnar Go SDK Documentation
 
 This repository hosts the documentation source for the
-https://docs.couchbase.com/columnar-go-sdk/1.0/hello-world/overview.html[Couchbase Columnar Go SDK Documentation].
+https://docs.couchbase.com/analytics-go-sdk/1.0/hello-world/overview.html[Enterprise Analytics Go SDK Documentation].
 
 
 This branch documents the 1.0 release of the SDK.
-It follows the https://docs.couchbase.com/columnar-go-sdk/1.0/project-docs/compatibility.html#api-version[columnar SDK 1.0 API].
+It follows the https://docs.couchbase.com/analytics-go-sdk/1.0/project-docs/compatibility.html#api-version[Enterprise Analytics SDK 1.0 API].
 
 
 == Contributing
@@ -46,7 +46,7 @@ Docs that you need to use the software (compatibility tables, release notes, etc
 
 Within each module, docs content is mostly found in the `pages` directories, as `.adoc` files.
 Occasionally, a partial fragment in a `partials` directory contains content reused over more than one page.
-Most re-use is from single-sourced content in the https://github.com/couchbase/docs-columnar-sdk-common[sdk-common] repo.
+Most re-use is from single-sourced content in the https://github.com/couchbase/docs-analytics-sdk-common[sdk-common] repo.
 
 === Single-sourced Content
 
