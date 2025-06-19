@@ -3,8 +3,7 @@ version: '1.0'
 title: Go Columnar SDK
 start_page: hello-world:overview.adoc
 nav:
-- modules/ROOT/nav.adoc
-
+  - modules/ROOT/nav.adoc
 asciidoc:
   attributes:
     page-nav-header-levels: 2
@@ -12,7 +11,7 @@ asciidoc:
     sdk_current_version: '1.0.0'
     sdk_dot_minor: '1.0'
     sdk_dot_major: '1.x'
-    version-server: '7.6'Add commentMore actions
+    version-server: '7.6'
     version-common: '1.0'
     name_platform: 'Go'
     name-sdk: 'Go Columnar SDK'
