@@ -4,13 +4,13 @@
 [abstract]
 {description} -- and to try and be prepared for anything that conceivably could come up.
 
-The Go SDK works nicely with the https://golang.org/pkg/errors/[errors package] to interrogate errors.
+The Go SDK works nicely with the https://golang.org/pkg/errors/[`errors` package] to interrogate errors.
 Of course, you can also just log them and fail the operation.
 
-== Using Errors.As
+== Using `errors.As`
 
 All errors from the Go SDK that occur from an interaction with the server have `ColumnarError` in the error chain.
-This error indicate a client-server interaction failed. Specifically, it indicates a request could not be dispatched, a response was not received, or the response indicated an error.
+This error indicates a client-server interaction failed. Specifically, it indicates a request could not be dispatched, a response was not received, or the response indicated an error.
 
 [source,go]
 ----
@@ -18,7 +18,7 @@ include::devguide:example$errors.go[tags=columanarError]
 ----
 
 The SDK also exposes a `QueryError` type, which wraps `ColumnarError` and exposes more information about the query context.
-Specifically this error allows access to the error code and message returned directly from the query engine.
+Specifically, this error allows access to the error code and message returned directly from the query engine.
 This error only occurs when the query engine is attempting to execute a query.
 
 [source,go]
@@ -26,14 +26,14 @@ This error only occurs when the query engine is attempting to execute a query.
 include::devguide:example$errors.go[tags=queryError]
 ----
 
-== Using Errors.Is
+== Using `errors.Is`
 
 Errors in the Go SDK primarily fall into a small number of categories:
 
-- `ErrColumnar` - Occurs when a client-server interaction failed. This will be the base error if no more specific error is detected.
-- `ErrQuery` - Occurs when a server error is encountered while executing a query, excluding errors that fall into `ErrInvalidCredential` or `ErrTimeout`.
-- `ErrInvalidCredential` - Occurs when the credentials provided to the server are invalid. This can be returned by `ExecuteQuery` if SDK bootstrapping fails or be returned from the query engine.
-- `ErrTimeout` - Occurs when a query times out on the server.
+- `ErrColumnar` -- Occurs when a client-server interaction fails. This will be the base error if no more specific error is detected.
+- `ErrQuery` -- Occurs when a server error is encountered while executing a query, excluding errors that fall into `ErrInvalidCredential` or `ErrTimeout`.
+- `ErrInvalidCredential` -- Occurs when the credentials provided to the server are invalid. This can be returned by `ExecuteQuery` if SDK bootstrapping fails or be returned from the query engine.
+- `ErrTimeout` -- Occurs when a query times out on the server.
 - Other - this includes platform errors and SDK errors like `ErrInvalidArgument`
 
 == Timeouts
@@ -42,17 +42,17 @@ Timeouts are a common source of errors in distributed systems.
 The Go SDK exposes timeouts in two ways, depending on the `context.Context` provided to the operation.
 
 If the `context.Context` provided to `ExecuteQuery` contains a `Deadline` then the timeout is controlled by the context.
-If a timeout occurs in this case then it will be returned as a `context.DeadlineExceeded` error.
-Note: the `context.CancelFunc` is also respected, if the `Context` is cancelled then a `context.Canceled` error will be returned.
+If a timeout occurs in this case, then it will be returned as a `context.DeadlineExceeded` error.
+Note: the `context.CancelFunc` is also respected, if the `Context` is canceled then a `context.Canceled` error will be returned.
 
 If there is no `Deadline` specified on the `Context` then the SDK will apply the timeout specified by the `QueryTimeout` from `ClusterOptions`.
-If a timeout occurs in this case then it will be returned as an `ErrTimeout` error.
+If a timeout occurs in this case, then it will be returned as an `ErrTimeout` error.
 
 == Errors that prevent dispatch
 
-Sometimes errors occur during SDK bootstrap which prevent the SDK from discovering the cluster topology.
+Sometimes errors occur during SDK bootstrap which prevents the SDK from discovering the cluster topology.
 These errors prevent the SDK from knowing where to send a query.
-When a bootstrap error is detected then the SDK will fast-fail the operation and return the error.
+When a bootstrap error is detected, then the SDK will fast-fail the operation and return the error.
 
 Note: this only applies before the SDK has discovered the cluster topology.
-Once the topology is known then the SDK will not fast-fail operations due to any underlying connection errors.
+Once the topology is known, then the SDK will not fast-fail operations due to any underlying connection errors.
