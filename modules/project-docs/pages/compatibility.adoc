@@ -1,5 +1,5 @@
 = Compatibility
-:description: Platform compatibility, and features available in different SDK versions, and compatibility between Server and SDK. \
+:description: Platform compatibility, and features available in different SDK versions, and compatibility between {oi-cloud-name} and SDK. \
 Plus notes on Cloud, networks, and AWS Lambda.
 :page-toclevels: 3
 :table-caption!:
@@ -39,10 +39,10 @@ include::{sdk_api}@columnar-sdk:shared:partial$network-requirements.adoc[tag=lan
 == Capella Columnar Compatibility
 
 
-Capella Columnar is a fully hosted service, continually updated, and offering the latest version --
+{oi-cloud-name} is a fully hosted service, continually updated, and offering the latest version --
 with users having a few weeks to upgrade from the previous version.
 As such, the latest Couchbase Columnar SDKs are tested against the latest versions.
-Where older versions of the {name-sdk} pre-date significant new features in Columnar, those differences will be noted in this section.
+Where older versions of the {name-sdk} pre-date significant new features in {oi-cloud-name}, those differences will be noted in this section.
 
 
 

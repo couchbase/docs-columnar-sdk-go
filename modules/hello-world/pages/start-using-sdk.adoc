@@ -1,6 +1,6 @@
-= Hello Columnar -- Go SDK Quickstart Guide
+= Hello {oi-cloud-name} -- Go SDK Quickstart Guide
 :page-toclevels: 2
-:description: Install, connect, try. A quick start guide to get you up and running with Columnar and the {name-sdk}.
+:description: Install, connect, try. A quick start guide to get you up and running with {oi-cloud-name} and the {name-sdk}.
 
 [abstract]
 {description}
@@ -15,7 +15,7 @@ include::columnar-sdk:shared:partial$start-using-sdk.adoc[tag=intro]
 == Before You Start
 
 Sign up for a xref:cloud:get-started:create-account.adoc[Capella account],
-and choose a xref:columnar:intro:intro.adoc[Columnar] cluster.
+and choose an xref:columnar:intro:intro.adoc[{oi-cloud-name}] cluster.
 
 After creating the cluster, add your IP address to the list of allowed IP addresses.
 // TODO: Link to https://docs.couchbase.com/columnar/admin/ip-allowed-list.html

@@ -9,16 +9,16 @@
 
 
 
-The Columnar Go SDK allows you to connect to a Capella Columnar cluster from Go.
+The Columnar Go SDK allows you to connect to an {oi-cloud-name} cluster from Go.
 For connecting to a Couchbase Server Cluster -- self-managed, or Capella Operational --
 see our xref:go-sdk:hello-world:overview.adoc[Go Operational SDK].
 
 
 {empty} +
 
-== icon:database[] Using Your Columnar Cluster
+== icon:database[] Using Your {oi-cloud-name} Cluster
 
-How-to guides and tutorials to help you start your development journey with Columnar and the Go SDK.
+How-to guides and tutorials to help you start your development journey with {oi-cloud-name} and the Go SDK.
 
 ++++
 <div class="card-row three-column-row">
@@ -27,7 +27,7 @@ How-to guides and tutorials to help you start your development journey with Colu
 [.column]
 .Getting Started
 * xref:hello-world:start-using-sdk.adoc[]
-* xref:howtos:managing-connections.adoc[Connecting to Columnar]
+* xref:howtos:managing-connections.adoc[Connecting to {oi-cloud-name}]
 * xref:howtos:sqlpp-queries-with-sdk.adoc[]
 
 ////
@@ -50,7 +50,7 @@ How-to guides and tutorials to help you start your development journey with Colu
 
 == icon:graduation-cap[] Learn
 
-Take a deep-dive into the SDK concept material and learn more about Couchbase and Columnar.
+Take a deep-dive into the SDK concept material and learn more about Couchbase and {oi-cloud-name}.
 
 ++++
 <div class="card-row three-column-row">
@@ -74,7 +74,7 @@ Take a deep-dive into the SDK concept material and learn more about Couchbase an
 
 == icon:book[] Resources
 
-Useful resources to help support your development experience with Columnar and the Java SDK.
+Useful resources to help support your development experience with {oi-cloud-name} and the Go SDK.
 
 ++++
 <div class="card-row three-column-row">
