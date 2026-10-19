@@ -7,7 +7,7 @@
 {description}
 
 Columnar SDKs are developed from the ground-up and while they maintain some syntactic similarities with the xref:home:ROOT:sdk.adoc[operational SDKs],
-they are purpose built for Columnar's analytical use cases.
+they are purpose built for {oi-cloud-name}'s analytical use cases.
 They support streaming APIs to handle large datasets, as well as the common features expected to be present in any modern database SDK --
 such as connection management and robust error handling.
 

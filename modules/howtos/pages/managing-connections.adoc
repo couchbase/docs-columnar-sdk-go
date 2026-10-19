@@ -1,5 +1,5 @@
 = Managing Connections
-:description: This section describes how to connect the {name-sdk} to a Couchbase cluster.
+:description: This section describes how to connect the {name-sdk} to an {oi-cloud-name} cluster.
 :page-toclevels: 2
 
 
@@ -16,14 +16,14 @@
 It contains best practices as well as information on TLS/SSL, advanced connection options, and troubleshooting Cloud connections.
 
 
-Our xref:hello-world:start-using-sdk.adoc[Getting Started pages] cover the basics of making a connection to a Capella Columnar cluster.
+Our xref:hello-world:start-using-sdk.adoc[Getting Started pages] cover the basics of making a connection to a {oi-cloud-name} cluster.
 This page is a wider look at the topic.
 
 
 == Connecting to a Cluster
 
 
-A connection to a Couchbase Server cluster is represented by a `Cluster` object.
+A connection to an {oi-cloud-name} cluster is represented by a `Cluster` object.
 A `Cluster` provides access to Buckets, Scopes, and Collections, as well as various Couchbase services and management interfaces.
 The simplest way to create a `Cluster` object is to call `cbcolumnar.NewCluster()` with a <<connection-strings, connection string>>, username, and password:
 
@@ -134,7 +134,7 @@ Proceeding with normal bootstrap.
 
 We strongly recommend that the client and server xref:project-docs:compatibility.adoc#network-requirements[are in the same LAN-like environment] (e.g. AWS Region).
 As this may not always be possible during development, read the guidance on working with xref:ref:client-settings.adoc#commonly-used-options[constrained network environments].
-More details on connecting your client code to Couchbase Capella can be found xref:cloud:clouds:connect-an-sdk.adoc#connecting-your-sdk-to-capella[in the Capella Operational docs].
+More details on connecting your client code to {oi-cloud-name} can be found xref:cloud:clouds:connect-an-sdk.adoc#connecting-your-sdk-to-capella[in the Capella Operational docs].
 
 
 === Troubleshooting Connections to Cloud
